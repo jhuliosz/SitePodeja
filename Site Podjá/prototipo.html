@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabacaria Premium - Seu Narguilé Completo</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+        .cart-badge {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background-color: #ef4444;
+            color: white;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+        }
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        .flavor-selector {
+            transition: all 0.3s ease;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 font-sans">
+    <!-- Header -->
+    <header class="bg-gradient-to-r from-amber-800 to-amber-900 text-white shadow-lg sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <i class="fas fa-smoking text-2xl"></i>
+                <h1 class="text-xl md:text-2xl font-bold">Tabacaria Premium</h1>
+            </div>
+            <nav class="hidden md:flex space-x-6">
+                <a href="#produtos" class="hover:text-amber-200 transition">Produtos</a>
+                <a href="#promocoes" class="hover:text-amber-200 transition">Promoções</a>
+                <a href="#sobre" class="hover:text-amber-200 transition">Sobre Nós</a>
+            </nav>
+            <div class="relative">
+                <button id="cart-button" class="flex items-center space-x-1 hover:text-amber-200 transition">
+                    <i class="fas fa-shopping-cart text-xl"></i>
+                    <span id="cart-count" class="hidden md:inline">0</span>
+                    <span id="cart-badge" class="cart-badge hidden">0</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="bg-gradient-to-b from-amber-700 to-amber-800 text-white py-16 md:py-24">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl md:text-5xl font-bold mb-4">Os Melhores Produtos para Seu Narguilé</h2>
+            <p class="text-xl md:text-2xl mb-8">Essências premium, carvão de qualidade e acessórios exclusivos</p>
+            <a href="#produtos" class="bg-white text-amber-800 font-bold py-3 px-8 rounded-full hover:bg-amber-100 transition duration-300 inline-block">Ver Produtos</a>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section id="produtos" class="py-12 bg-white">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 text-amber-900">Nossos Produtos</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Product 1 -->
+                <div class="product-card bg-white rounded-lg shadow-md overflow-hidden transition duration-300">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1600857544200-b2f666a9a2ec?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+                             alt="Essências para Narguilé" class="w-full h-48 object-cover">
+                        <div class="absolute top-2 left-2 bg-amber-600 text-white text-xs font-bold px-2 py-1 rounded">Mais Vendido</div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Essências</h3>
+                        <p class="text-gray-600 mb-4">Variedade de sabores premium para seu narguilé</p>
+                        
+                        <div class="mb-4">
+                            <label for="flavor-1" class="block text-sm font-medium text-gray-700 mb-1">Sabores:</label>
+                            <select id="flavor-1" class="flavor-selector w-full border border-gray-300 rounded-md py-2 px-3 focus:outline-none focus:ring-2 focus:ring-amber-500">
+                                <option value="" selected disabled>Selecione um sabor</option>
+                                <option value="morango">Morango</option>
+                                <option value="menta">Menta</option>
+                                <option value="melancia">Melancia</option>
+                                <option value="uva">Uva</option>
+                                <option value="maçã verde">Maçã Verde</option>
+                            </select>
+                        </div>
+                        
+                        <div class="flex justify-between items-center">
+                            <span class="text-lg font-bold text-amber-800">R$ 25,90</span>
+                            <button class="add-to-cart bg-amber-600 hover:bg-amber-700 text-white py-2 px-4 rounded transition duration-300" 
+                                    data-product="Essência" data-price="25.90">
+                                Adicionar ao Carrinho
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 2 -->
+                <div class="product-card bg-white rounded-lg shadow-md overflow-hidden transition duration-300">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1605000797499-95a51c5269ae?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1471&q=80" 
+                             alt="Narguilés" class="w-full h-48 object-cover">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Narguilés</h3>
+                        <p class="text-gray-600 mb-4">Diversos modelos e tamanhos para sua experiência</p>
+                        
+                        <div class="mb-4">
+                            <label for="flavor-2" class="block text-sm font-medium text-gray-700 mb-1">Modelos:</label>
+                            <select id="flavor-2" class="flavor-selector w-full border border-gray-300 rounded-md py-2 px-3 focus:outline-none focus:ring-2 focus:ring-amber-500">
+                                <option value="" selected disabled>Selecione um modelo</option>
+                                <option value="pequeno">Pequeno (25cm)</option>
+                                <option value="medio">Médio (45cm)</option>
+                                <option value="grande">Grande (70cm)</option>
+                                <option value="premium">Premium (90cm)</option>
+                            </select>
+                        </div>
+                        
+                        <div class="flex justify-between items-center">
+                            <span class="text-lg font-bold text-amber-800">R$ 149,90</span>
+                            <button class="add-to-cart bg-amber-600 hover:bg-amber-700 text-white py-2 px-4 rounded transition duration-300" 
+                                    data-product="Narguilé" data-price="149.90">
+                                Adicionar ao Carrinho
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 3 -->
+                <div class="product-card bg-white rounded-lg shadow-md overflow-hidden transition duration-300">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1518057111178-44a106bad636?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=688&q=80" 
+                             alt="Carvão para Narguilé" class="w-full h-48 object-cover">
+                        <div class="absolute top-2 left-2 bg-red-600 text-white text-xs font-bold px-2 py-1 rounded">Promoção</div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Carvão</h3>
+                        <p class="text-gray-600 mb-4">Carvão de qualidade para melhorar sua sessão</p>
+                        
+                        <div class="mb-4">
+                            <label for="flavor-3" class="block text-sm font-medium text-gray-700 mb-1">Tipos:</label>
+                            <select id="flavor-3" class="flavor-selector w-full border border-gray-300 rounded-md py-2 px-3 focus:outline-none focus:ring-2 focus:ring-amber-500">
+                                <option value="" selected disabled>Selecione um tipo</option>
+                                <option value="coco">Coco (50g)</option>
+                                <option value="coco-premium">Coco Premium (100g)</option>
+                                <option value="natural">Natural (50g)</option>
+                                <option value="natural-premium">Natural Premium (100g)</option>
+                            </select>
+                        </div>
+                        
+                        <div class="flex justify-between items-center">
+                            <span class="text-lg font-bold text-amber-800">R$ 12,90 <span class="text-sm text-gray-500 line-through">R$ 15,90</span></span>
+                            <button class="add-to-cart bg-amber-600 hover:bg-amber-700 text-white py-2 px-4 rounded transition duration-300" 
+                                    data-product="Carvão" data-price="12.90">
+                                Adicionar ao Carrinho
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 4 -->
+                <div class="product-card bg-white rounded-lg shadow-md overflow-hidden transition duration-300">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1583743814966-8936fdcb8cc4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" 
+                             alt="Acessórios para Narguilé" class="w-full h-48 object-cover">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Acessórios</h3>
+                        <p class="text-gray-600 mb-4">Tudo que você precisa para sua sessão</p>
+                        
+                        <div class="mb-4">
+                            <label for="flavor-4" class="block text-sm font-medium text-gray-700 mb-1">Itens:</label>
+                            <select id="flavor-4" class="flavor-selector w-full border border-gray-300 rounded-md py-2 px-3 focus:outline-none focus:ring-2 focus:ring-amber-500">
+                                <option value="" selected disabled>Selecione um item</option>
+                                <option value="abafador">Abafador</option>
+                                <option value="roseta">Roseta</option>
+                                <option value="piteira">Piteira</option>
+                                <option value="kit-limpeza">Kit Limpeza</option>
+                            </select>
+                        </div>
+                        
+                        <div class="flex justify-between items-center">
+                            <span class="text-lg font-bold text-amber-800">R$ 19,90</span>
+                            <button class="add-to-cart bg-amber-600 hover:bg-amber-700 text-white py-2 px-4 rounded transition duration-300" 
+                                    data-product="Acessório" data-price="19.90">
+                                Adicionar ao Carrinho
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 5 -->
+                <div class="product-card bg-white rounded-lg shadow-md overflow-hidden transition duration-300">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1558642452-9d2a7deb7f62?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+                             alt="Tabacos" class="w-full h-48 object-cover">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Tabacos</h3>
+                        <p class="text-gray-600 mb-4">Tabacos de qualidade para seu narguilé</p>
+                        
+                        <div class="mb-4">
+                            <label for="flavor-5" class="block text-sm font-medium text-gray-700 mb-1">Marcas:</label>
+                            <select id="flavor-5" class="flavor-selector w-full border border-gray-300 rounded-md py-2 px-3 focus:outline-none focus:ring-2 focus:ring-amber-500">
+                                <option value="" selected disabled>Selecione uma marca</option>
+                                <option value="al-fakher">Al Fakher</option>
+                                <option value="adalya">Adalya</option>
+                                <option value="fumari">Fumari</option>
+                                <option value="zomo">Zomo</option>
+                            </select>
+                        </div>
+                        
+                        <div class="flex justify-between items-center">
+                            <span class="text-lg font-bold text-amber-800">R$ 39,90</span>
+                            <button class="add-to-cart bg-amber-600 hover:bg-amber-700 text-white py-2 px-4 rounded transition duration-300" 
+                                    data-product="Tabaco" data-price="39.90">
+                                Adicionar ao Carrinho
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Product 6 -->
+                <div class="product-card bg-white rounded-lg shadow-md overflow-hidden transition duration-300">
+                    <div class="relative">
+                        <img src="https://images.unsplash.com/photo-1518895949257-7621c3c786d7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=688&q=80" 
+                             alt="Kits Completos" class="w-full h-48 object-cover">
+                        <div class="absolute top-2 left-2 bg-green-600 text-white text-xs font-bold px-2 py-1 rounded">Novidade</div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">Kits Completos</h3>
+                        <p class="text-gray-600 mb-4">Tudo que você precisa em um só lugar</p>
+                        
+                        <div class="mb-4">
+                            <label for="flavor-6" class="block text-sm font-medium text-gray-700 mb-1">Kits:</label>
+                            <select id="flavor-6" class="flavor-selector w-full border border-gray-300 rounded-md py-2 px-3 focus:outline-none focus:ring-2 focus:ring-amber-500">
+                                <option value="" selected disabled>Selecione um kit</option>
+                                <option value="iniciante">Kit Iniciante</option>
+                                <option value="intermediario">Kit Intermediário</option>
+                                <option value="premium">Kit Premium</option>
+                                <option value="luxo">Kit Luxo</option>
+                            </select>
+                        </div>
+                        
+                        <div class="flex justify-between items-center">
+                            <span class="text-lg font-bold text-amber-800">R$ 199,90</span>
+                            <button class="add-to-cart bg-amber-600 hover:bg-amber-700 text-white py-2 px-4 rounded transition duration-300" 
+                                    data-product="Kit Completo" data-price="199.90">
+                                Adicionar ao Carrinho
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cart Modal -->
+    <div id="cart-modal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-lg shadow-xl w-full max-w-2xl max-h-[90vh] overflow-y-auto">
+            <div class="p-6">
+                <div class="flex justify-between items-center mb-6">
+                    <h3 class="text-2xl font-bold text-gray-800">Seu Carrinho</h3>
+                    <button id="close-cart" class="text-gray-500 hover:text-gray-700">
+                        <i class="fas fa-times text-xl"></i>
+                    </button>
+                </div>
+                
+                <div id="cart-items" class="mb-6">
+                    <!-- Cart items will be added here dynamically -->
+                    <div class="text-center py-8 text-gray-500" id="empty-cart-message">
+                        <i class="fas fa-shopping-cart text-4xl mb-3 text-gray-300"></i>
+                        <p>Seu carrinho está vazio</p>
+                    </div>
+                </div>
+                
+                <div class="border-t border-gray-200 pt-4">
+                    <div class="flex justify-between mb-2">
+                        <span class="font-medium">Subtotal:</span>
+                        <span id="cart-subtotal">R$ 0,00</span>
+                    </div>
+                    <div class="flex justify-between mb-4">
+                        <span class="font-medium">Frete:</span>
+                        <span id="cart-shipping">A calcular</span>
+                    </div>
+                    <div class="flex justify-between text-lg font-bold">
+                        <span>Total:</span>
+                        <span id="cart-total">R$ 0,00</span>
+                    </div>
+                </div>
+                
+                <div class="mt-6">
+                    <button id="checkout-btn" class="w-full bg-amber-600 hover:bg-amber-700 text-white py-3 px-4 rounded transition duration-300">
+                        Finalizar Compra
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Checkout Modal -->
+    <div id="checkout-modal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-white rounded-lg shadow-xl w-full max-w-2xl max-h-[90vh] overflow-y-auto">
+            <div class="p-6">
+                <div class="flex justify-between items-center mb-6">
+                    <h3 class="text-2xl font-bold text-gray-800">Finalizar Pedido</h3>
+                    <button id="close-checkout" class="text-gray-500 hover:text-gray-700">
+                        <i class="fas fa-times text-xl"></i>
+                    </button>
+                </div>
+                
+                <form id="checkout-form">
+                    <div class="mb-4">
+                        <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Nome Completo *</label>
+                        <input type="text" id="name" required class="w-full border border-gray-300 rounded-md py-2 px-3 focus:outline-none focus:ring-2 focus:ring-amber-500">
+                    </div>
+                    
+                    <div class="mb-4">
+                        <label for="phone" class="block text-sm font-medium text-gray-700 mb-1">Celular *</label>
+                        <input type="tel" id="phone" required class="w-full border border-gray-300 rounded-md py-2 px-3 focus:outline-none focus:ring-2 focus:ring-amber-500">
+                    </div>
+                    
+                    <div class="mb-4">
+                        <label for="address" class="block text-sm font-medium text-gray-700 mb-1">Endereço de Entrega *</label>
+                        <textarea id="address" required rows="3" class="w-full border border-gray-300 rounded-md py-2 px-3 focus:outline-none focus:ring-2 focus:ring-amber-500"></textarea>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <label for="payment" class="block text-sm font-medium text-gray-700 mb-1">Forma de Pagamento *</label>
+                        <select id="payment" required class="w-full border border-gray-300 rounded-md py-2 px-3 focus:outline-none focus:ring-2 focus:ring-amber-500">
+                            <option value="" selected disabled>Selecione uma opção</option>
+                            <option value="Dinheiro">Dinheiro</option>
+                            <option value="Pix">Pix</option>
+                            <option value="Débito">Cartão de Débito</option>
+                            <option value="Crédito">Cartão de Crédito</option>
+                        </select>
+                    </div>
+                    
+                    <div class="border-t border-gray-200 pt-4 mb-6">
+                        <h4 class="font-bold mb-2">Resumo do Pedido</h4>
+                        <div id="checkout-summary">
+                            <!-- Order summary will be added here -->
+                        </div>
+                        <div class="flex justify-between font-bold mt-2">
+                            <span>Total:</span>
+                            <span id="checkout-total">R$ 0,00</span>
+                        </div>
+                    </div>
+                    
+                    <button type="submit" class="w-full bg-amber-600 hover:bg-amber-700 text-white py-3 px-4 rounded transition duration-300">
+                        Finalizar Pedido
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-amber-900 text-white py-8">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Tabacaria Premium</h3>
+                    <p class="text-amber-200">Tudo o que você precisa para sua sessão de narguilé em um só lugar.</p>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Contato</h3>
+                    <ul class="space-y-2">
+                        <li><i class="fas fa-phone mr-2"></i> (11) 99999-9999</li>
+                        <li><i class="fas fa-envelope mr-2"></i> contato@tabacariapremium.com</li>
+                        <li><i class="fas fa-map-marker-alt mr-2"></i> Rua Exemplo, 123 - Centro</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Redes Sociais</h3>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-2xl hover:text-amber-300 transition"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-2xl hover:text-amber-300 transition"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="text-2xl hover:text-amber-300 transition"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                    <p class="mt-4 text-sm text-amber-200">Horário de atendimento: Seg-Sex 10h-20h | Sáb 10h-18h</p>
+                </div>
+            </div>
+            <div class="border-t border-amber-800 mt-8 pt-6 text-center text-sm text-amber-200">
+                <p>© 2023 Tabacaria Premium. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Cart functionality
+        let cart = [];
+        
+        // DOM Elements
+        const cartButton = document.getElementById('cart-button');
+        const cartModal = document.getElementById('cart-modal');
+        const closeCart = document.getElementById('close-cart');
+        const cartItems = document.getElementById('cart-items');
+        const emptyCartMessage = document.getElementById('empty-cart-message');
+        const cartCount = document.getElementById('cart-count');
+        const cartBadge = document.getElementById('cart-badge');
+        const cartSubtotal = document.getElementById('cart-subtotal');
+        const cartTotal = document.getElementById('cart-total');
+        const checkoutBtn = document.getElementById('checkout-btn');
+        const checkoutModal = document.getElementById('checkout-modal');
+        const closeCheckout = document.getElementById('close-checkout');
+        const checkoutForm = document.getElementById('checkout-form');
+        const checkoutSummary = document.getElementById('checkout-summary');
+        const checkoutTotal = document.getElementById('checkout-total');
+        const addToCartButtons = document.querySelectorAll('.add-to-cart');
+        
+        // Open cart modal
+        cartButton.addEventListener('click', () => {
+            updateCartDisplay();
+            cartModal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        });
+        
+        // Close cart modal
+        closeCart.addEventListener('click', () => {
+            cartModal.classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        });
+        
+        // Open checkout modal
+        checkoutBtn.addEventListener('click', () => {
+            if (cart.length === 0) return;
+            
+            cartModal.classList.add('hidden');
+            checkoutModal.classList.remove('hidden');
+            updateCheckoutSummary();
+        });
+        
+        // Close checkout modal
+        closeCheckout.addEventListener('click', () => {
+            checkoutModal.classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        });
+        
+        // Add to cart functionality
+        addToCartButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const productCard = button.closest('.product-card');
+                const productName = button.getAttribute('data-product');
+                const productPrice = parseFloat(button.getAttribute('data-price'));
+                const flavorSelector = productCard.querySelector('.flavor-selector');
+                const selectedFlavor = flavorSelector.value;
+                
+                if (!selectedFlavor) {
+                    alert('Por favor, selecione um sabor/opção antes de adicionar ao carrinho.');
+                    return;
+                }
+                
+                // Add to cart
+                cart.push({
+                    name: productName,
+                    flavor: selectedFlavor,
+                    price: productPrice,
+                    quantity: 1
+                });
+                
+                // Update UI
+                updateCartCount();
+                showAddToCartFeedback(button);
+                
+                // Reset flavor selection
+                flavorSelector.selectedIndex = 0;
+            });
+        });
+        
+        // Show feedback when adding to cart
+        function showAddToCartFeedback(button) {
+            const originalText = button.textContent;
+            button.textContent = 'Adicionado!';
+            button.classList.remove('bg-amber-600', 'hover:bg-amber-700');
+            button.classList.add('bg-green-600', 'hover:bg-green-700');
+            
+            setTimeout(() => {
+                button.textContent = originalText;
+                button.classList.remove('bg-green-600', 'hover:bg-green-700');
+                button.classList.add('bg-amber-600', 'hover:bg-amber-700');
+            }, 1500);
+        }
+        
+        // Update cart count display
+        function updateCartCount() {
+            const count = cart.reduce((total, item) => total + item.quantity, 0);
+            cartCount.textContent = count;
+            cartBadge.textContent = count;
+            
+            if (count > 0) {
+                cartCount.classList.remove('hidden');
+                cartBadge.classList.remove('hidden');
+            } else {
+                cartCount.classList.add('hidden');
+                cartBadge.classList.add('hidden');
+            }
+        }
+        
+        // Update cart display
+        function updateCartDisplay() {
+            if (cart.length === 0) {
+                emptyCartMessage.classList.remove('hidden');
+                cartItems.innerHTML = '';
+                cartSubtotal.textContent = 'R$ 0,00';
+                cartTotal.textContent = 'R$ 0,00';
+                return;
+            }
+            
+            emptyCartMessage.classList.add('hidden');
+            
+            let itemsHTML = '';
+            let subtotal = 0;
+            
+            cart.forEach((item, index) => {
+                subtotal += item.price * item.quantity;
+                
+                itemsHTML += `
+                    <div class="flex justify-between items-center py-4 border-b border-gray-200">
+                        <div>
+                            <h4 class="font-medium">${item.name} - ${item.flavor}</h4>
+                            <div class="flex items-center mt-1">
+                                <button class="quantity-btn text-gray-500 hover:text-amber-600" data-index="${index}" data-action="decrease">
+                                    <i class="fas fa-minus"></i>
+                                </button>
+                                <span class="mx-2">${item.quantity}</span>
+                                <button class="quantity-btn text-gray-500 hover:text-amber-600" data-index="${index}" data-action="increase">
+                                    <i class="fas fa-plus"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="text-right">
+                            <span class="block font-medium">R$ ${(item.price * item.quantity).toFixed(2).replace('.', ',')}</span>
+                            <button class="remove-btn text-red-500 hover:text-red-700 text-sm mt-1" data-index="${index}">
+                                <i class="fas fa-trash"></i> Remover
+                            </button>
+                        </div>
+                    </div>
+                `;
+            });
+            
+            cartItems.innerHTML = itemsHTML;
+            cartSubtotal.textContent = `R$ ${subtotal.toFixed(2).replace('.', ',')}`;
+            cartTotal.textContent = `R$ ${subtotal.toFixed(2).replace('.', ',')}`;
+            
+            // Add event listeners to quantity buttons
+            document.querySelectorAll('.quantity-btn').forEach(button => {
+                button.addEventListener('click', (e) => {
+                    const index = parseInt(button.getAttribute('data-index'));
+                    const action = button.getAttribute('data-action');
+                    
+                    if (action === 'increase') {
+                        cart[index].quantity += 1;
+                    } else if (action === 'decrease') {
+                        if (cart[index].quantity > 1) {
+                            cart[index].quantity -= 1;
+                        } else {
+                            cart.splice(index, 1);
+                        }
+                    }
+                    
+                    updateCartDisplay();
+                    updateCartCount();
+                });
+            });
+            
+            // Add event listeners to remove buttons
+            document.querySelectorAll('.remove-btn').forEach(button => {
+                button.addEventListener('click', (e) => {
+                    const index = parseInt(button.getAttribute('data-index'));
+                    cart.splice(index, 1);
+                    
+                    updateCartDisplay();
+                    updateCartCount();
+                });
+            });
+        }
+        
+        // Update checkout summary
+        function updateCheckoutSummary() {
+            let summaryHTML = '';
+            let total = 0;
+            
+            cart.forEach(item => {
+                total += item.price * item.quantity;
+                
+                summaryHTML += `
+                    <div class="flex justify-between py-2 border-b border-gray-200">
+                        <span>${item.quantity}x ${item.name} - ${item.flavor}</span>
+                        <span>R$ ${(item.price * item.quantity).toFixed(2).replace('.', ',')}</span>
+                    </div>
+                `;
+            });
+            
+            checkoutSummary.innerHTML = summaryHTML;
+            checkoutTotal.textContent = `R$ ${total.toFixed(2).replace('.', ',')}`;
+        }
+        
+        // Handle checkout form submission
+        checkoutForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            const name = document.getElementById('name').value;
+            const phone = document.getElementById('phone').value;
+            const address = document.getElementById('address').value;
+            const payment = document.getElementById('payment').value;
+            
+            // Prepare WhatsApp message
+            let message = `Olá, gostaria de fazer um pedido!\n\n`;
+            message += `*Nome:* ${name}\n`;
+            message += `*Celular:* ${phone}\n`;
+            message += `*Endereço:* ${address}\n`;
+            message += `*Forma de Pagamento:* ${payment}\n\n`;
+            message += `*Itens do Pedido:*\n`;
+            
+            cart.forEach(item => {
+                message += `- ${item.quantity}x ${item.name} (${item.flavor}) - R$ ${(item.price * item.quantity).toFixed(2).replace('.', ',')}\n`;
+            });
+            
+            message += `\n*Total:* R$ ${cart.reduce((total, item) => total + (item.price * item.quantity), 0).toFixed(2).replace('.', ',')}\n\n`;
+            message += `Por favor, confirme meu pedido. Obrigado!`;
+            
+            // Encode message for URL
+            const encodedMessage = encodeURIComponent(message);
+            
+            // Redirect to WhatsApp
+            window.location.href = `https://wa.me/5511999999999?text=${encodedMessage}`;
+            
+            // Clear cart
+            cart = [];
+            updateCartCount();
+            checkoutModal.classList.add('hidden');
+            document.body.style.overflow = 'auto';
+            checkoutForm.reset();
+        });
+    </script>
+</body>
+</html>
